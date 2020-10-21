@@ -3,6 +3,7 @@ import USERS from '../types/users.type'
 const initialState = {
   users: [],
   loading: false,
+  isError: false,
   error: null
 }
 
@@ -12,13 +13,15 @@ const users = (state = initialState, action) => {
     case USERS.GET_USERS:
       return {
         ...state,
-        loading: true
+        loading: true,
+        isError: false,
       };
 
     case USERS.GET_USERS_SUCCESS:
       return {
         ...state,
         loading: false,
+        isError: false,
         users: action.payload,
       };
 
@@ -26,6 +29,7 @@ const users = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
+        isError: true,
         error: action.payload
       }
 
