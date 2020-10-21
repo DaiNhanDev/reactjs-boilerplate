@@ -10,7 +10,7 @@ import rootSaga from './rootSaga';
 
 
 export default function configureStore(initialState = {}, history) {
-  let composeEnhancers = compose;
+  let composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
   // const reduxSagaMonitorOptions = {};
 
   const sagaMiddleware = createSagaMiddleware();
